@@ -51,7 +51,6 @@ class _SplashScreenState extends State<SplashScreen>
 
     final authState = context.read<AuthBloc>().state;
     if(StorageService.isFirstTime()){
-      StorageService.setFirstTime(false);
       // navigate to onboarding screen
       Get.offNamed(AppRoutes.onboarding);
     } else if (authState.userModel != null){
