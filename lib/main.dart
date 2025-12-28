@@ -19,13 +19,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider<FontBloc>(
-          create: (context) => FontBloc()
-          ),
-      ], 
+      providers: [BlocProvider<FontBloc>(create: (context) => FontBloc())],
       child: BlocBuilder<FontBloc, FontState>(
-        builder: (context, FontState){
+        builder: (context, FontState) {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'E-learning App',
@@ -36,7 +32,7 @@ class MyApp extends StatelessWidget {
             getPages: AppPages.pages,
           );
         },
-      )
-      );
+      ),
+    );
   }
 }
