@@ -26,7 +26,7 @@ class FontService {
       _storage.read(_fontSizeKey) ?? fontSizeScales['Normal']!;
 
   static String get currentFontFamily =>
-      _storage.read(_fontFamilyKey) ?? availableFonts['Poppins']!;
+      _storage.read(_fontFamilyKey) ?? availableFonts['Montserrat']!;
 
   static Future<void> setFontScale(double scale) async {
     await _storage.write(_fontSizeKey, scale);
@@ -44,15 +44,15 @@ class FontService {
     TextTheme getFontTheme() {
       switch (fontFamily) {
         case 'roboto':
-          return GoogleFonts.robotoTextTheme(baseTheme);
+          return GoogleFonts.montserratTextTheme(baseTheme);
         case 'openSans':
-          return GoogleFonts.openSansTextTheme(baseTheme);
+          return GoogleFonts.montserratTextTheme(baseTheme);
         case 'lato':
-          return GoogleFonts.latoTextTheme(baseTheme);
+          return GoogleFonts.montserratTextTheme(baseTheme);
         case 'montserrat':
           return GoogleFonts.montserratTextTheme(baseTheme);
         default:
-          return GoogleFonts.poppinsTextTheme(baseTheme);
+          return GoogleFonts.montserratTextTheme(baseTheme);
       }
     }
 
