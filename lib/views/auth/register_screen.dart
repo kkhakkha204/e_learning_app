@@ -14,7 +14,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  final _formkey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   final _fullNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -99,7 +99,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 children: [
                   const SizedBox(height: 20),
                   Form(
-                    key: _formkey,
+                    key: _formKey,
                     child: Column(
                       children: [
                         // full name textfield
@@ -115,6 +115,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           label: 'Email',
                           prefixIcon: Icons.email_outlined,
                           controller: _emailController,
+                          keyboardType: TextInputType.emailAddress,
                           validator: FormValidator.validateEmail,
                         ),
 
@@ -205,12 +206,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   void _handleRegister() {
-    if (_formkey.currentState!.validate() && _selectedRole != null) {
+    if (_formKey.currentState!.validate() && _selectedRole != null) {
       // handle registeration logic here
       if (_selectedRole == UserRole.teacher) {
         Get.offAllNamed(AppRoutes.teacherHome);
       } else {
-        Get.offAllNamed(AppRoutes.home);
+        Get.offAllNamed(AppRoutes.main);
       }
     } else if (_selectedRole == null) {
       ScaffoldMessenger.of(context).showSnackBar(

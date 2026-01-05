@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await StorageService.init();
@@ -28,11 +28,11 @@ class MyApp extends StatelessWidget {
         BlocProvider<AuthBloc>(create: (context) => AuthBloc()),
       ],
       child: BlocBuilder<FontBloc, FontState>(
-        builder: (context, FontState) {
+        builder: (context, fontState) {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'E-learning App',
-            theme: AppTheme.getLightTheme(FontState),
+            theme: AppTheme.getLightTheme(fontState),
             themeMode: ThemeMode.light,
             initialRoute: AppRoutes.splash,
             onGenerateRoute: AppRoutes.onGenerateRoute,
