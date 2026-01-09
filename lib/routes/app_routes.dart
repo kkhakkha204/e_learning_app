@@ -2,6 +2,7 @@ import 'package:e_learning_app/main_screen.dart';
 import 'package:e_learning_app/views/auth/forgot_password_screen.dart';
 import 'package:e_learning_app/views/auth/login_screen.dart';
 import 'package:e_learning_app/views/auth/register_screen.dart';
+import 'package:e_learning_app/views/course/course_detail/course_detail_screen.dart';
 import 'package:e_learning_app/views/course/course_list/course_list_screen.dart';
 import 'package:e_learning_app/views/home/home_screen.dart';
 import 'package:e_learning_app/views/onboarding/onboarding_screen.dart';
@@ -25,6 +26,8 @@ class AppRoutes {
 
   // course routes
   static const String courseList = '/courses';
+  static const String courseDetail = '/course/:id';
+  static const String payment = '/payment';
 
   // quiz routes
   static const String quizList = '/quizzes';
@@ -62,10 +65,24 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const TeacherHomeScreen());
       case courseList:
         final args = setting.arguments as Map<String, dynamic>?;
-        return MaterialPageRoute(builder: (_) => CourseListScreen(
-          categoryId: args?['category'] as String?,
-          categoryName: args?['categoryName'] as String?,
-        ));
+        return MaterialPageRoute(
+          builder: (_) => CourseListScreen(
+            categoryId: args?['category'] as String?,
+            categoryName: args?['categoryName'] as String?,
+          ),
+        );
+
+      case courseDetail:
+        String courseId;
+        if (setting.arguments != null) {
+          courseId = setting.arguments as String;
+        } else {
+          final uri = Uri.parse(setting.name ?? '');
+          courseId = uri.pathSegments.last;
+        }
+        return MaterialPageRoute(
+          builder: (_) => CourseDetailScreen(courseId: courseId),
+        );
       case quizList:
         return MaterialPageRoute(builder: (_) => const QuizListScreen());
       case profile:

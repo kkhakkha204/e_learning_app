@@ -19,16 +19,16 @@ class DummyDataService {
       lessons: _createFlutterLessons(),
       level: 'Intermediate',
       requirements: [
-        'Basic programming knowledge'
-            'Basic programming knowledge'
-            'Basic programming knowledge',
+        'Basic programming knowledge',
+        'Basic programming knowledge',
+        'Basic programming knowledge',
       ],
       whatYouWillLearn: [
-        'Basic programming knowledge'
-            'Basic programming knowledge'
-            'Basic programming knowledge'
-            'Basic programming knowledge'
-            'Basic programming knowledge',
+        'Basic programming knowledge',
+        'Basic programming knowledge',
+        'Basic programming knowledge',
+        'Basic programming knowledge',
+        'Basic programming knowledge',
       ],
       createdAt: DateTime.now().subtract(const Duration(days: 30)),
       updatedAt: DateTime.now(),
