@@ -24,7 +24,7 @@ class InProgressSection extends StatelessWidget {
       children: [
         if (inProgressCourses.isNotEmpty)
           Text(
-            'In Progress',
+            'Tiếp tục học',
             style: theme.textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
             ),
@@ -111,7 +111,7 @@ class InProgressSection extends StatelessWidget {
 
                                 const SizedBox(height: 8),
                                 Text(
-                                  'Progress: ${(progress * 100).toInt()}%',
+                                  'Tiến trình: ${(progress * 100).toInt()}%',
                                   style: theme.textTheme.bodyMedium?.copyWith(
                                     color: AppColors.secondary,
                                   ),

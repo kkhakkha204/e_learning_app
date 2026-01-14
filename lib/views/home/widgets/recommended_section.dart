@@ -16,12 +16,12 @@ class RecommendedSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Recommended',
+              'Khóa học đề xuất',
               style: theme.textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
-            TextButton(onPressed: () {}, child: const Text('See All')),
+            TextButton(onPressed: () {}, child: const Text('Xem thêm')),
           ],
         ),
 
@@ -38,7 +38,7 @@ class RecommendedSection extends StatelessWidget {
                 title: course.title,
                 imageUrl: course.imageUrl,
                 instructorId: course.instructorId,
-                duration: '${course.lessons.length * 30} mins',
+                duration: '${course.lessons.length * 30} phút',
                 isPremium: course.isPremium,
               );
             },

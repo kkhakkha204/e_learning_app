@@ -59,7 +59,7 @@ class _LessonScreenState extends State<LessonScreen> {
   void _downloadCertificate(Course course) {
     // here you would implement the actual certificate generation and download
     // For now, we'll just show a success message
-    Get.snackbar('Certificate Ready', 'Your certificate for ${course.title} has been generated',
+    Get.snackbar('Chứng chỉ đã sẵn sàng!', 'Chứng chỉ cho khóa học ${course.title} đã được tạo',
     backgroundColor: AppColors.primary,
     colorText: Colors.white,
     duration: const Duration(seconds: 5),
@@ -78,13 +78,13 @@ class _LessonScreenState extends State<LessonScreen> {
         : false;
 
     if (course == null) {
-      return const Scaffold(body: Center(child: Text('Course not found')));
+      return const Scaffold(body: Center(child: Text('Khóa học không tồn tại')));
     }
 
     if (course.isPremium && !isUnlocked) {
       return Scaffold(
         body: Center(
-          child: Text('Please purchase this course to access the content'),
+          child: Text('Để có thể truy cập, hãy mua khóa học!'),
         ),
       );
     }
@@ -108,7 +108,7 @@ class _LessonScreenState extends State<LessonScreen> {
                 ? Chewie(controller: _videoController.chewieController!)
                 : Container(
                     color: theme.colorScheme.surface,
-                    child: const Center(child: Text('Error loading video')),
+                    child: const Center(child: Text('Không tải được video')),
                   ),
           ),
           if (lesson != null)
@@ -134,7 +134,7 @@ class _LessonScreenState extends State<LessonScreen> {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          '${lesson.duration} minutes',
+                          '${lesson.duration} phút',
                           style: theme.textTheme.bodySmall?.copyWith(
                             color: theme.colorScheme.secondary,
                           ),
@@ -143,7 +143,7 @@ class _LessonScreenState extends State<LessonScreen> {
                     ),
                     const SizedBox(height: 24),
                     Text(
-                      'Description',
+                      'Thông tin',
                       style: theme.textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -152,7 +152,7 @@ class _LessonScreenState extends State<LessonScreen> {
                     Text(lesson.description, style: theme.textTheme.bodyLarge),
                     const SizedBox(height: 24),
                     Text(
-                      'Resources',
+                      'Tài liệu',
                       style: theme.textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),

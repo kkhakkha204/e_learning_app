@@ -78,7 +78,7 @@ class CategorySection extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  '${category.courseCount} courses',
+                  '${category.courseCount} khóa học',
                   style: Theme.of(
                     context,
                   ).textTheme.bodySmall?.copyWith(color: AppColors.secondary),

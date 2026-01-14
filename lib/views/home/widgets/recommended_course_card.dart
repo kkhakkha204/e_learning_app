@@ -136,7 +136,7 @@ class RecommendedCourseCard extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          'Instructor $instructorId',
+                          'Giảng viên $instructorId',
                           style: Theme.of(context).textTheme.bodySmall
                               ?.copyWith(color: AppColors.secondary),
                         ),
