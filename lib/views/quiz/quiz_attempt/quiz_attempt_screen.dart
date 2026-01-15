@@ -8,7 +8,9 @@ import 'package:e_learning_app/views/quiz/quiz_attempt/widgets/quiz_attempt_app_
 import 'package:e_learning_app/views/quiz/quiz_attempt/widgets/quiz_navigation_bar.dart';
 import 'package:e_learning_app/views/quiz/quiz_attempt/widgets/quiz_question_page.dart';
 import 'package:e_learning_app/views/quiz/quiz_attempt/widgets/quiz_submit_dialog.dart';
+import 'package:e_learning_app/views/quiz/quiz_result/quiz_result_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class QuizAttemptScreen extends StatefulWidget {
   final String quizId;
@@ -40,7 +42,6 @@ class _QuizAttemptScreenState extends State<QuizAttemptScreen> {
 
   @override
   void dispose() {
-    super.dispose();
     _timer?.cancel();
     _pageController.removeListener(_onPageChanged);
     _pageController.dispose();
@@ -94,6 +95,9 @@ class _QuizAttemptScreenState extends State<QuizAttemptScreen> {
     DummyDataService.saveQuizAttempt(currentAttempt!);
 
     // navigate to quiz result screen
+    Get.off(
+      () => QuizResultScreen(attempt: currentAttempt!, quiz: quiz)
+    );
   }
 
   int _calculateScore() {
